@@ -18,6 +18,6 @@ def get_product_inventory(names=None):
         for item in arr:
             log.write(item + '\n')
     log.close()
-    # s3 = boto3.client('s3')
-    # s3.upload_file('log/output.log', 'lrpub', 'check.log')
+    s3 = boto3.client('s3')
+    s3.upload_file('log/output.log', 'lrpub', 'check.log')
     print('DONE')
