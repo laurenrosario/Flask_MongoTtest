@@ -29,9 +29,9 @@ def setup_cron(function):
 #     last_time_run = datetime.datetime.now()
 
 
-# @app.route('/')
-# def root():
-#     return f'Last inventory refresh was at {last_time_run}'
+ @app.route('/')
+ def root():
+     return 'hello'
 
 
 if __name__ == "__main__":
