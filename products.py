@@ -4,11 +4,9 @@ import os
 
 
 def get_product_inventory(names=None):
-    mongo = pymongo.MongoClient('mongodb://localhost:27017/')
+    #mongo = pymongo.MongoClient('mongodb://localhost:27017/')
+    mongo = pymongo.MongoClient('mongodb://3.19.240.27:27017/')
     db = mongo.lr_engine
-    # mongo = pymongo.MongoClient(os.getenv('db_string'))
-    # print('MONGO', mongo)
-    # db = mongo[os.getenv('database')]
     counter = 0
     arr = []
     for a in db.products.find():
