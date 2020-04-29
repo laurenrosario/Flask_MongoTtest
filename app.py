@@ -14,7 +14,7 @@ mongo = PyMongo(app)
 def setup_cron(function):
     """Set up the cron job run my AP Scheduler"""
     sched = BackgroundScheduler()
-    sched.add_job(function, 'cron', hour=15 minute=25)
+    sched.add_job(function, 'cron', hour=15, minute=25)
     sched.add_job(set_last_time_run, 'cron', hour=15, minute=25,
                   timezone=pytz.timezone('US/Eastern'))
     sched.start()
