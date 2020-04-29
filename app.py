@@ -15,6 +15,7 @@ def setup_cron(function):
     """Set up the cron job run my AP Scheduler"""
     sched = BackgroundScheduler()
     sched.add_job(function, 'cron', hour=15, minute=42)
+    print('set last time run')
     sched.add_job(set_last_time_run, 'cron', hour=15, minute=42,
                   timezone=pytz.timezone('US/Eastern'))
     sched.start()
@@ -25,6 +26,7 @@ last_time_run = ''
 
 
 def set_last_time_run():
+    print('this is getting called')
     global last_time_run
     last_time_run = datetime.datetime.now()
 
