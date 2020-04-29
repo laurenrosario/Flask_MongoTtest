@@ -14,8 +14,8 @@ mongo = PyMongo(app)
 def setup_cron(function):
     """Set up the cron job run my AP Scheduler"""
     sched = BackgroundScheduler()
-    sched.add_job(function, 'cron', hour=15, minute=25)
-    sched.add_job(set_last_time_run, 'cron', hour=15, minute=25,
+    sched.add_job(function, 'cron', hour=15, minute=38)
+    sched.add_job(set_last_time_run, 'cron', hour=15, minute=38,
                   timezone=pytz.timezone('US/Eastern'))
     sched.start()
     sched.print_jobs()
@@ -32,6 +32,7 @@ def set_last_time_run():
 @app.route('/')
 def root():
     return f'Last inventory refresh was at {last_time_run}'
+
 
 setup_cron(products.get_product_inventory)
 
